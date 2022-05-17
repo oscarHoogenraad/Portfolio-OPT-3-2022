@@ -7,13 +7,13 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class HomeController {
+public class MenuVenster {
 
     @FXML
     private AnchorPane rootPane;
 
     public void back(MouseEvent mouseEvent) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LoginScreen.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LoginVenster.fxml"));
         rootPane.getChildren().setAll(pane);
     }
 
