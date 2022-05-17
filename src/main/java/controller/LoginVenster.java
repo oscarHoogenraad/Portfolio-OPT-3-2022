@@ -26,9 +26,18 @@ public class LoginVenster {
     @FXML
     private Label failedLogin;
 
-    public void loginCheck(MouseEvent mouseEvent) throws IOException {
+    @FXML
+    private TextField gebruikersNummer;
+
+    public void nextPage() throws IOException{
+
+    }
+
+
+    public void loginCheck() throws IOException {
         for(Account i: Account.getAccountList()){
-            if(userName.getText().equals(i.getUsername())&& passWord.getText().equals(i.getPassword())){
+            int tempNr = Integer.parseInt(gebruikersNummer.getText());
+            if(userName.getText().equals(i.getUsername())&& passWord.getText().equals(i.getPassword())&& tempNr==i.getUserNumber()){
                 AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/MenuVenster.fxml"));
                 rootPane.getChildren().setAll(pane);
             }

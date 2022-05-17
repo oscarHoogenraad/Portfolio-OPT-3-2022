@@ -8,11 +8,13 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginVenster">
    <children>
-      <PasswordField fx:id="passWord" layoutX="291.0" layoutY="324.0" />
+      <PasswordField fx:id="passWord" layoutX="291.0" layoutY="255.0" />
       <Button fx:id="loginButton" layoutX="343.0" layoutY="389.0" mnemonicParsing="false" onMousePressed="#loginCheck" text="Login" />
-      <Label layoutX="291.0" layoutY="227.0" text="Username:" />
-      <TextField fx:id="userName" layoutX="291.0" layoutY="256.0" />
-      <Label layoutX="291.0" layoutY="302.0" text="Password:" />
+      <Label layoutX="291.0" layoutY="158.0" text="Username:" />
+      <TextField fx:id="userName" layoutX="291.0" layoutY="187.0" />
+      <Label layoutX="291.0" layoutY="233.0" text="Password:" />
       <Label fx:id="failedLogin" layoutX="273.0" layoutY="456.0" prefHeight="17.0" prefWidth="185.0" text="Onjuiste inlog, probeer opnieuw!" textFill="RED" visible="false" />
+      <Label layoutX="291.0" layoutY="300.0" text="Gebruikersnummer:" />
+      <TextField fx:id="gebruikersNummer" layoutX="291.0" layoutY="328.0" />
    </children>
 </AnchorPane>

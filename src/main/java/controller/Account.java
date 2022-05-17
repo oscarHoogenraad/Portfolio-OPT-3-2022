@@ -9,12 +9,14 @@ public class Account {
 
     private String username;
     private String password;
-    private boolean ingelogd;
+
+    public int getUserNumber() {
+        return userNumber;
+    }
+
+    private int userNumber;
     private static ArrayList<Account>accountList= new ArrayList<Account>();
 
-    public boolean isIngelogd() {
-        return ingelogd;
-    }
 
     public String getPassword() {
         return password;
@@ -24,10 +26,11 @@ public class Account {
         return accountList;
     }
 
-    public Account(String username, String password, boolean ingelogd){
+    public Account(String username, String password, int userNumber){
+        this.userNumber = userNumber;
         this.username = username;
         this.password = password;
-        this.ingelogd = false;
         accountList.add(this);
     }
 }
+
