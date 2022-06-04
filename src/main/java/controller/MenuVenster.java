@@ -1,20 +1,24 @@
 package controller;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.input.MouseEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MenuVenster {
+public class MenuVenster extends NavigationController implements Initializable {
 
     @FXML
-    private AnchorPane rootPane;
+    public AnchorPane rootPane;
 
-    public void back(MouseEvent mouseEvent) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LoginVenster.fxml"));
-        rootPane.getChildren().setAll(pane);
+    @FXML
+    private Label displayIngelod;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(Account.ingelogdeUser().isIngelogd()){
+            displayIngelod.setText(Account.ingelogdeUser().getUsername());
+        }
     }
-
 }

@@ -1,58 +1,75 @@
 package controller;
 
-import java.util.ArrayList;
+public abstract class Product {
+    public void setOpVoorraad(boolean opVoorraad) {
+        this.opVoorraad = opVoorraad;
+    }
 
-public class Product {
-    private String merk;
     private boolean opVoorraad;
 
-    public Product(String merk, boolean opVoorraad, int huurprijsPerDag, double verzekering, int gewicht) {
-        this.merk = merk;
-        this.opVoorraad = opVoorraad;
+    public void setHuurprijsPerDag(double huurprijsPerDag) {
         this.huurprijsPerDag = huurprijsPerDag;
+    }
+
+    private double huurprijsPerDag;
+
+    public void setVerzekering(double verzekering) {
         this.verzekering = verzekering;
-        this.gewicht = gewicht;
     }
 
-    public String getMerk() {
-        return merk;
+    private double verzekering;
+    private String soort;
+
+    public String getDoorVerhuurd() {
+        return doorVerhuurd;
     }
 
-    public boolean isOpVoorraad() {
-        return opVoorraad;
+    public String getAanverhuurd() {
+        return aanverhuurd;
     }
 
-    public int getHuurprijsPerDag() {
-        return huurprijsPerDag;
+    public void setDoorVerhuurd(String doorVerhuurd) {
+        this.doorVerhuurd = doorVerhuurd;
     }
+
+    public void setAanverhuurd(String aanverhuurd) {
+        this.aanverhuurd = aanverhuurd;
+    }
+
+    private String doorVerhuurd;
+    private String aanverhuurd;
 
     public double getVerzekering() {
         return verzekering;
     }
 
-    public int getGewicht() {
-        return gewicht;
+    public String getSoort() {
+        return soort;
     }
 
-    public static ArrayList<Product> getPersonenautos() {
-        return Personenautos;
+    public Product(boolean opVoorraad, double huurprijsPerDag, double verzekering, String soort, String doorVerhuurd, String aanverhuurd) {
+        this.opVoorraad = opVoorraad;
+        this.huurprijsPerDag = huurprijsPerDag;
+        this.verzekering = verzekering;
+        this.soort = soort;
+        this.doorVerhuurd = doorVerhuurd;
+        this.aanverhuurd = aanverhuurd;
     }
 
-    private int huurprijsPerDag;
-    private double verzekering;
-    private int gewicht;
-
-    private static ArrayList<Product> Personenautos= new ArrayList<Product>();
-
-
-    public int Prijs(int gewicht){
-        int prijs = 0;
-        if(gewicht>1250&& gewicht<=2000){
-            prijs+=100;
-        }
-        if(gewicht>2000){
-            prijs+=250;
-        }
-        return prijs;
+    public void changeVoorraad(){
+        this.opVoorraad=false;
     }
+
+
+    public boolean isOpVoorraad() {
+        return opVoorraad;
+    }
+
+    public double getHuurprijsPerDag() {
+        return huurprijsPerDag;
+    }
+
+
+
+
 }
