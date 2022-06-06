@@ -2,13 +2,32 @@ package controller;
 
 import java.util.ArrayList;
 
-public class Account {
+public abstract class Account implements IAccount{
     public String getUsername() {
         return username;
     }
 
+    public Account(String username, String password, int userNumber){
+        this.userNumber = userNumber;
+        this.username = username;
+        this.password = password;
+        accountList.add(this);
+    }
+
     private String username;
     private String password;
+    private boolean keuzeAdmin;
+    private boolean ingelogd;
+    private int userNumber;
+
+    public boolean isKeuzeAdmin() {
+        return keuzeAdmin;
+    }
+
+    public void setKeuzeAdmin(boolean keuzeAdmin) {
+        this.keuzeAdmin = keuzeAdmin;
+    }
+
 
     public boolean isIngelogd() {
         return ingelogd;
@@ -18,13 +37,11 @@ public class Account {
         this.ingelogd = ingelod;
     }
 
-    private boolean ingelogd;
 
     public int getUserNumber() {
         return userNumber;
     }
 
-    private int userNumber;
     private static ArrayList<Account>accountList= new ArrayList<Account>();
 
 
@@ -51,13 +68,6 @@ public class Account {
                 i.ingelogd = false;
             }
         }
-    }
-
-    public Account(String username, String password, int userNumber){
-        this.userNumber = userNumber;
-        this.username = username;
-        this.password = password;
-        accountList.add(this);
     }
 
 }

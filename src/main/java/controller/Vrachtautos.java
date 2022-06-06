@@ -20,12 +20,6 @@ public class Vrachtautos extends Product{
         this.gewicht=gewicht;
     }
 
-    public static ArrayList<Product> getVrachtautosList() {
-        return vrachtautosList;
-    }
-
-    private static ArrayList<Product> vrachtautosList = new ArrayList<>();
-
     @Override
     void soortProductMessage(){
         System.out.println("Dit product valt onder het soort product: Vrachtauto");

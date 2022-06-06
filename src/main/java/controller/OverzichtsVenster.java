@@ -119,30 +119,6 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         boormachinesTable.refresh();
     }
 
-    public TableView<Personenautos> getPersonenautosTable() {
-        return personenautosTable;
-    }
-
-    public TableView<Vrachtautos> getVrachtautosTable() {
-        return vrachtautosTable;
-    }
-
-    public TableView<Boormachines> getBoormachinesTable() {
-        return boormachinesTable;
-    }
-
-    public TableColumn<Personenautos, String> getSoort() {
-        return Soort;
-    }
-
-    public TableColumn<Vrachtautos, String> getSoort2() {
-        return Soort2;
-    }
-
-    public TableColumn<Boormachines, String> getSoort3() {
-        return Soort3;
-    }
-
     public static void addToList(){
         if(personenautosArrayList.equals(emptylist)){
             personenautosArrayList.add(new Personenautos(false, 40, "Sedan", 1400, 0.01, "Personenauto", "jan123", "Anne van der Molen"));

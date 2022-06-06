@@ -21,12 +21,6 @@ public class Boormachines extends Product{
         this.type = type;
     }
 
-    public static ArrayList<Boormachines> getBoormachinesList() {
-        return boormachinesList;
-    }
-
-    private static ArrayList<Boormachines> boormachinesList = new ArrayList<>();
-
     @Override
     void soortProductMessage(){
         System.out.println("Dit product valt onder het soort product: Boormachine");

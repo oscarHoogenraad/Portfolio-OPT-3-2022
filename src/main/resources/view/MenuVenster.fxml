@@ -16,5 +16,6 @@
             <Label fx:id="displayIngelod" text="Label" />
          </children>
       </VBox>
+      <Label fx:id="welAdmin" layoutX="526.0" layoutY="52.0" text="Je bent ingelogd als een Admin" visible="false" />
    </children>
 </AnchorPane>

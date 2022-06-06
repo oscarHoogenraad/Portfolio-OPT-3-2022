@@ -24,12 +24,4 @@ public class Personenautos extends Product {
     void soortProductMessage(){
         System.out.println("Dit product valt onder het soort product: Personenauto");
     }
-
-
-    public static ArrayList<Personenautos> getPersonenAutosList() {
-        return personenAutosList;
-    }
-
-    private static ArrayList<Personenautos> personenAutosList = new ArrayList<>();
-
 }

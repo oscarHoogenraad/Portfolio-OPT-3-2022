@@ -43,8 +43,6 @@ public class BeheerVenster extends NavigationController implements Initializable
     @FXML
     private TableColumn<Boormachines, String> Soort3;
 
-    public static ArrayList<Product> soortList = new ArrayList<>();
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Account.ingelogdeUser().isIngelogd()){
