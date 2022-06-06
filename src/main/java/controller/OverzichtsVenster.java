@@ -2,19 +2,13 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -23,7 +17,8 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     @FXML
     public AnchorPane rootPane;
 
-    Personenautos use;
+    @FXML
+    private Label displayIngelod;
 
     @FXML
     private Label aanDisplay, doorDisplay, aanLabel, doorLabel, typeDisplay, laadvermogenDisplay, soortDisplay, gewichtDisplay, merkDisplay,
@@ -65,27 +60,31 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     @FXML
     private TableColumn<Boormachines, Boolean> OpVoorraad3;
 
+    public static ArrayList<Personenautos> getPersonenautosArrayList() {
+        return personenautosArrayList;
+    }
+
     public static ArrayList<Personenautos> personenautosArrayList = new ArrayList<>();
-    public static ArrayList<Personenautos> emptylist = new ArrayList<>();
+    public static ArrayList<Product> emptylist = new ArrayList<>();
+
+    public static ArrayList<Vrachtautos> getVrachtautosArrayList() {
+        return vrachtautosArrayList;
+    }
+
+    public static ArrayList<Boormachines> getBoormachinesArrayList() {
+        return boormachinesArrayList;
+    }
+
     public static ArrayList<Vrachtautos> vrachtautosArrayList = new ArrayList<>();
     public static ArrayList<Boormachines> boormachinesArrayList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(personenautosArrayList.equals(emptylist)){
-            personenautosArrayList.add(new Personenautos(false, 40, "Sedan", 1400, 0.01, "Personenauto", "jan123", "Anne van der Molen"));
-            personenautosArrayList.add(new Personenautos(true, 40, "SUV", 1250, 0.01, "Personenauto", "", ""));
-            personenautosArrayList.add(new Personenautos(true, 40, "Cabriolet", 1300, 0.01, "Personenauto", "", ""));
-
-            vrachtautosArrayList.add(new Vrachtautos(false, 0.1, 0.01, 2000, 10000, "Vrachtauto", "klaas66", "Joop Bessendracht"));
-            vrachtautosArrayList.add(new Vrachtautos(false, 0.1, 0.01, 1500, 9000, "Vrachtauto", "admin1", "Hicham el Khlifi"));
-            vrachtautosArrayList.add(new Vrachtautos(true, 0.1, 0.01, 3000, 9500, "Vrachtauto", "", ""));
-
-            boormachinesArrayList.add(new Boormachines(true, 5, "DeWalt", "Schroefboormachine", 1, "Boormachine", "", ""));
-            boormachinesArrayList.add(new Boormachines(true, 5, "Bosch", "Accuboormachine", 1, "Boormachine", "", ""));
-            boormachinesArrayList.add(new Boormachines(false, 5, "Makita", "Accuboormachine", 1, "Boormachine", "piet22", "Jan Boskamp"));
+        if(Account.ingelogdeUser().isIngelogd()){
+            displayIngelod.setText(Account.ingelogdeUser().getUsername());
         }
-        addList();
+        addToList();
+        addToTable();
         personenautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             detailPersonenauto();
         });
@@ -120,7 +119,47 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         boormachinesTable.refresh();
     }
 
-    public void addList(){
+    public TableView<Personenautos> getPersonenautosTable() {
+        return personenautosTable;
+    }
+
+    public TableView<Vrachtautos> getVrachtautosTable() {
+        return vrachtautosTable;
+    }
+
+    public TableView<Boormachines> getBoormachinesTable() {
+        return boormachinesTable;
+    }
+
+    public TableColumn<Personenautos, String> getSoort() {
+        return Soort;
+    }
+
+    public TableColumn<Vrachtautos, String> getSoort2() {
+        return Soort2;
+    }
+
+    public TableColumn<Boormachines, String> getSoort3() {
+        return Soort3;
+    }
+
+    public static void addToList(){
+        if(personenautosArrayList.equals(emptylist)){
+            personenautosArrayList.add(new Personenautos(false, 40, "Sedan", 1400, 0.01, "Personenauto", "jan123", "Anne van der Molen"));
+            personenautosArrayList.add(new Personenautos(true, 40, "SUV", 1250, 0.01, "Personenauto", "", ""));
+            personenautosArrayList.add(new Personenautos(true, 40, "Cabriolet", 1300, 0.01, "Personenauto", "", ""));
+
+            vrachtautosArrayList.add(new Vrachtautos(false, 0.1, 0.01, 2000, 10000, "Vrachtauto", "klaas66", "Joop Bessendracht"));
+            vrachtautosArrayList.add(new Vrachtautos(false, 0.1, 0.01, 1500, 9000, "Vrachtauto", "admin1", "Hicham el Khlifi"));
+            vrachtautosArrayList.add(new Vrachtautos(true, 0.1, 0.01, 3000, 9500, "Vrachtauto", "", ""));
+
+            boormachinesArrayList.add(new Boormachines(true, 5, "DeWalt", "Schroefboormachine", 1, "Boormachine", "", ""));
+            boormachinesArrayList.add(new Boormachines(true, 5, "Bosch", "Accuboormachine", 1, "Boormachine", "", ""));
+            boormachinesArrayList.add(new Boormachines(false, 5, "Makita", "Accuboormachine", 1, "Boormachine", "piet22", "Jan Boskamp"));
+        }
+    }
+
+    public void addToTable(){
         Soort.setCellValueFactory(new PropertyValueFactory<>("soort"));
         OpVoorraad.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
         Soort2.setCellValueFactory(new PropertyValueFactory<>("soort"));
