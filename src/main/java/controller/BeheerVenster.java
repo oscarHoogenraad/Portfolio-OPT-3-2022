@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BeheerVenster extends NavigationController implements Initializable {
@@ -17,7 +16,7 @@ public class BeheerVenster extends NavigationController implements Initializable
     public AnchorPane rootPane;
 
     @FXML
-    private Label displayIngelod, merkLabel, gewichtLabel, laadvermogenLabel, typeLabel;
+    private Label displayingelogd, merkLabel, gewichtLabel, laadvermogenLabel, typeLabel;
 
     @FXML
     private Button toevoegPersonenautoButton, toevoegBoormachineButton, toevoegVrachtautoButton;
@@ -46,7 +45,7 @@ public class BeheerVenster extends NavigationController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Account.ingelogdeUser().isIngelogd()){
-            displayIngelod.setText(Account.ingelogdeUser().getUsername());
+            displayingelogd.setText(Account.ingelogdeUser().getUsername());
         }
         OverzichtsVenster.addToList();
         addToTableView();

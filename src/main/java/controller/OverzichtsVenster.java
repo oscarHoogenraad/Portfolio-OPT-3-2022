@@ -18,7 +18,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     public AnchorPane rootPane;
 
     @FXML
-    private Label displayIngelod;
+    private Label displayIngelogd;
 
     @FXML
     private Label aanDisplay, doorDisplay, aanLabel, doorLabel, typeDisplay, laadvermogenDisplay, soortDisplay, gewichtDisplay, merkDisplay,
@@ -60,12 +60,14 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     @FXML
     private TableColumn<Boormachines, Boolean> OpVoorraad3;
 
+    public static ArrayList<Personenautos> personenautosArrayList = new ArrayList<>();
+    public static ArrayList<Product> emptylist = new ArrayList<>();
+    public static ArrayList<Vrachtautos> vrachtautosArrayList = new ArrayList<>();
+    public static ArrayList<Boormachines> boormachinesArrayList = new ArrayList<>();
+
     public static ArrayList<Personenautos> getPersonenautosArrayList() {
         return personenautosArrayList;
     }
-
-    public static ArrayList<Personenautos> personenautosArrayList = new ArrayList<>();
-    public static ArrayList<Product> emptylist = new ArrayList<>();
 
     public static ArrayList<Vrachtautos> getVrachtautosArrayList() {
         return vrachtautosArrayList;
@@ -75,13 +77,10 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         return boormachinesArrayList;
     }
 
-    public static ArrayList<Vrachtautos> vrachtautosArrayList = new ArrayList<>();
-    public static ArrayList<Boormachines> boormachinesArrayList = new ArrayList<>();
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Account.ingelogdeUser().isIngelogd()){
-            displayIngelod.setText(Account.ingelogdeUser().getUsername());
+            displayIngelogd.setText(Account.ingelogdeUser().getUsername());
         }
         addToList();
         addToTable();
@@ -275,7 +274,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         temp.soortProductMessage();
     }
 
-    public void printProductSoortVrachauto(){
+    public void printProductSoortVrachtauto(){
         Product temp = new Vrachtautos(true, 0, 0, 0, 0, "", "", "");
         temp.soortProductMessage();
     }
@@ -338,7 +337,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         soortDisplay.setVisible(true);
 
         if(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            printProductSoortVrachauto();
+            printProductSoortVrachtauto();
             klantNaamField.setVisible(true);
             hpLabel.setVisible(true);
             verhuurVrachtButton.setVisible(true);

@@ -13,11 +13,6 @@ public class NavigationController {
     @FXML
     private AnchorPane rootPane;
 
-    public void toLogin() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LoginVenster.fxml"));
-        rootPane.getChildren().setAll(pane);
-    }
-
     public void toMenu() throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/MenuVenster.fxml"));
         rootPane.getChildren().setAll(pane);
@@ -39,8 +34,4 @@ public class NavigationController {
         rootPane.getChildren().setAll(pane);
     }
 
-    public void toToevoeg() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/ToevoegVenster.fxml"));
-        rootPane.getChildren().setAll(pane);
-    }
 }

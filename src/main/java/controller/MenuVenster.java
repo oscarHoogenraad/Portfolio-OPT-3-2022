@@ -13,12 +13,12 @@ public class MenuVenster extends NavigationController implements Initializable {
     public AnchorPane rootPane;
 
     @FXML
-    private Label displayIngelod, welAdmin;
+    private Label displayIngelogd, welAdmin;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Account.ingelogdeUser().isIngelogd()){
-            displayIngelod.setText(Account.ingelogdeUser().getUsername());
+            displayIngelogd.setText(Account.ingelogdeUser().getUsername());
             displayAdmin();
 
         }

@@ -3,13 +3,6 @@ package controller;
 import java.util.ArrayList;
 
 public class Personenautos extends Product {
-    public String getMerk() {
-        return merk;
-    }
-
-    public double getGewicht() {
-        return gewicht;
-    }
 
     private String merk;
     private double gewicht;
@@ -18,6 +11,14 @@ public class Personenautos extends Product {
         super(opVoorraad, huurprijsPerDag, verzekering, soort, doorVerhuurd, aanVerhuurd);
         this.merk=merk;
         this.gewicht=gewicht;
+    }
+
+    public String getMerk() {
+        return merk;
+    }
+
+    public double getGewicht() {
+        return gewicht;
     }
 
     @Override

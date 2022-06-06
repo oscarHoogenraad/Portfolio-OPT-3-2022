@@ -91,7 +91,7 @@
                   <Font name="Calibri Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="displayIngelod" text="Label">
+            <Label fx:id="displayingelogd" text="Label">
                <font>
                   <Font name="Calibri Italic" size="16.0" />
                </font>

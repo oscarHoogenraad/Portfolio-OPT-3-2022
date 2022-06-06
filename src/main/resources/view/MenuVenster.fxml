@@ -13,7 +13,7 @@
       <VBox prefHeight="34.0" prefWidth="140.0">
          <children>
             <Label text="ingelogde gebruiker:" />
-            <Label fx:id="displayIngelod" text="Label" />
+            <Label fx:id="displayIngelogd" text="Label" />
          </children>
       </VBox>
       <Label fx:id="welAdmin" layoutX="526.0" layoutY="52.0" text="Je bent ingelogd als een Admin" visible="false" />
