@@ -1,9 +1,7 @@
 package controller;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import controller.Account;
 import java.io.IOException;
 
 public class NavigationController {
@@ -33,5 +31,4 @@ public class NavigationController {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/OverzichtsVenster.fxml"));
         rootPane.getChildren().setAll(pane);
     }
-
 }

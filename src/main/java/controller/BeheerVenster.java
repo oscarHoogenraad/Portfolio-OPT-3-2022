@@ -12,6 +12,9 @@ import java.util.ResourceBundle;
 
 public class BeheerVenster extends NavigationController implements Initializable {
 
+    LoginVenster ReliesOn;
+    OverzichtsVenster Updates;
+
     @FXML
     public AnchorPane rootPane;
 
@@ -49,15 +52,12 @@ public class BeheerVenster extends NavigationController implements Initializable
         }
         OverzichtsVenster.addToList();
         addToTableView();
-
         personenautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegPersonenauto();
         });
-
         vrachtautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegVrachtauto();
         });
-
         boormachinesTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegBoormachine();
         });
@@ -67,7 +67,6 @@ public class BeheerVenster extends NavigationController implements Initializable
         Soort.setCellValueFactory(new PropertyValueFactory<>("soort"));
         Soort2.setCellValueFactory(new PropertyValueFactory<>("soort"));
         Soort3.setCellValueFactory(new PropertyValueFactory<>("soort"));
-
         personenautosTable.setItems(FXCollections.observableArrayList(OverzichtsVenster.personenautosArrayList.get(0)));
         vrachtautosTable.setItems(FXCollections.observableArrayList(OverzichtsVenster.vrachtautosArrayList.get(0)));
         boormachinesTable.setItems(FXCollections.observableArrayList(OverzichtsVenster.boormachinesArrayList.get(0)));
@@ -112,7 +111,6 @@ public class BeheerVenster extends NavigationController implements Initializable
         typeLabel.setVisible(true);
         typeField.setVisible(true);
         toevoegBoormachineButton.setVisible(true);
-
     }
 
     public void addToPersonenauto(){
@@ -129,7 +127,5 @@ public class BeheerVenster extends NavigationController implements Initializable
         double c = Double.parseDouble(gewichtField.getText());
         OverzichtsVenster.getVrachtautosArrayList().add(new Vrachtautos(true, 0.1, 0.01, b, c, "Vrachtauto", "", ""));
     }
-
-
 }
 

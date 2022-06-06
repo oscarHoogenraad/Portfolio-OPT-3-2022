@@ -3,9 +3,13 @@ package controller;
 import java.util.ArrayList;
 
 public abstract class Account implements IAccount{
-    public String getUsername() {
-        return username;
-    }
+
+    Product edits;
+    private String username;
+    private String password;
+    private boolean keuzeAdmin;
+    private boolean ingelogd;
+    private int userNumber;
 
     public Account(String username, String password, int userNumber){
         this.userNumber = userNumber;
@@ -14,11 +18,9 @@ public abstract class Account implements IAccount{
         accountList.add(this);
     }
 
-    private String username;
-    private String password;
-    private boolean keuzeAdmin;
-    private boolean ingelogd;
-    private int userNumber;
+    public String getUsername() {
+        return username;
+    }
 
     public boolean isKeuzeAdmin() {
         return keuzeAdmin;

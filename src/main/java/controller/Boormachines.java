@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 public class Boormachines extends Product{
     private String merk;
     private String type;

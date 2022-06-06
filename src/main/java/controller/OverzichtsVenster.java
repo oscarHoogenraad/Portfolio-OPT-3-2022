@@ -1,5 +1,4 @@
 package controller;
-
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,12 +7,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class OverzichtsVenster extends NavigationController implements Initializable {
+
+    LoginVenster ReliesOn;
+
     @FXML
     public AnchorPane rootPane;
 
@@ -87,11 +88,9 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         personenautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             detailPersonenauto();
         });
-
         vrachtautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             detailVrachtauto();
         });
-
         boormachinesTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             detailBoormachine();
         });
@@ -123,11 +122,9 @@ public class OverzichtsVenster extends NavigationController implements Initializ
             personenautosArrayList.add(new Personenautos(false, 40, "Sedan", 1400, 0.01, "Personenauto", "jan123", "Anne van der Molen"));
             personenautosArrayList.add(new Personenautos(true, 40, "SUV", 1250, 0.01, "Personenauto", "", ""));
             personenautosArrayList.add(new Personenautos(true, 40, "Cabriolet", 1300, 0.01, "Personenauto", "", ""));
-
             vrachtautosArrayList.add(new Vrachtautos(false, 0.1, 0.01, 2000, 10000, "Vrachtauto", "klaas66", "Joop Bessendracht"));
             vrachtautosArrayList.add(new Vrachtautos(false, 0.1, 0.01, 1500, 9000, "Vrachtauto", "admin1", "Hicham el Khlifi"));
             vrachtautosArrayList.add(new Vrachtautos(true, 0.1, 0.01, 3000, 9500, "Vrachtauto", "", ""));
-
             boormachinesArrayList.add(new Boormachines(true, 5, "DeWalt", "Schroefboormachine", 1, "Boormachine", "", ""));
             boormachinesArrayList.add(new Boormachines(true, 5, "Bosch", "Accuboormachine", 1, "Boormachine", "", ""));
             boormachinesArrayList.add(new Boormachines(false, 5, "Makita", "Accuboormachine", 1, "Boormachine", "piet22", "Jan Boskamp"));
@@ -141,7 +138,6 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         OpVoorraad2.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
         Soort3.setCellValueFactory(new PropertyValueFactory<>("soort"));
         OpVoorraad3.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
-
         personenautosTable.setItems(FXCollections.observableArrayList(personenautosArrayList));
         vrachtautosTable.setItems(FXCollections.observableArrayList(vrachtautosArrayList));
         boormachinesTable.setItems(FXCollections.observableArrayList(boormachinesArrayList));
@@ -193,25 +189,23 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         }
     }
 
-    public void changeVerzekerVracht(ActionEvent event){
+    public void changeVerzekerVracht(ActionEvent event) {
         double tempHuur = vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen();
         double tempVerz = vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht();
-        if(verzekerVrachtButton.isSelected()){
-            if(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() <= tempHuur && vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() <= tempVerz){
+        if (verzekerVrachtButton.isSelected()) {
+            if (vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() <= tempHuur && vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() <= tempVerz) {
                 hpDisplay.setText((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + (vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()) + "");
                 vrachtautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + (vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()));
                 System.out.println(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag());
             }
-        }
-        else{
+        } else {
             double d = (vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() - vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht());
             double e = d * 10;
-            vrachtautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag(d/e);
+            vrachtautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag(d / e);
             hpDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() + "");
             System.out.println(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag());
         }
-        }
-
+    }
 
     public void changeVerzekerBoor(ActionEvent event){
         double temp = boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering();
@@ -309,6 +303,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
             hpDisplay.setVisible(true);
             verzekerAutoButton.setVisible(true);
         }
+
         if(!personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
             doorDisplay.setVisible(true);
             doorLabel.setVisible(true);
