@@ -128,7 +128,9 @@ public class BeheerVenster extends NavigationController implements Initializable
     }
 
     public void addToVrachtauto(){
-
+        double b = Double.parseDouble(laadVermogenField.getText());
+        double c = Double.parseDouble(gewichtField.getText());
+        OverzichtsVenster.getVrachtautosArrayList().add(new Vrachtautos(true, 0.1, 0.01, b, c, "Vrachtauto", "", ""));
     }
 
 
