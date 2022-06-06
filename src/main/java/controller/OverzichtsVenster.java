@@ -294,6 +294,21 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         }
     }
 
+    public void printProductSoortPersonenAuto(){
+        Product temp = new Personenautos(true, 0, "", 0, 0, "", "", "");
+        temp.soortProductMessage();
+    }
+
+    public void printProductSoortVrachauto(){
+        Product temp = new Vrachtautos(true, 0, 0, 0, 0, "", "", "");
+        temp.soortProductMessage();
+    }
+
+    public void printProductSoortBoormachine(){
+        Product temp = new Boormachines(true, 0, "", "", 0, "", "", "");
+        temp.soortProductMessage();
+    }
+
     public void detailPersonenauto() {
         setInvisible();
         voorraadDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
@@ -311,6 +326,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         soortDisplay.setVisible(true);
 
         if(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
+            printProductSoortPersonenAuto();
             klantNaamField.setVisible(true);
             verhuurAutoButton.setVisible(true);
             naamLabel.setVisible(true);
@@ -346,6 +362,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         soortDisplay.setVisible(true);
 
         if(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
+            printProductSoortVrachauto();
             klantNaamField.setVisible(true);
             hpLabel.setVisible(true);
             verhuurVrachtButton.setVisible(true);
@@ -381,6 +398,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         typeDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getType());
 
         if(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
+            printProductSoortBoormachine();
             klantNaamField.setVisible(true);
             verhuurBoorButton.setVisible(true);
             hpLabel.setVisible(true);

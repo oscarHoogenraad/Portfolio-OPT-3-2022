@@ -26,4 +26,9 @@ public class Boormachines extends Product{
     }
 
     private static ArrayList<Boormachines> boormachinesList = new ArrayList<>();
+
+    @Override
+    void soortProductMessage(){
+        System.out.println("Dit product valt onder het soort product: Boormachine");
+    }
 }

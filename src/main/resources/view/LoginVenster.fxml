@@ -16,7 +16,7 @@
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font></Label>
-      <Label fx:id="failedLogin" layoutX="273.0" layoutY="456.0" prefHeight="17.0" prefWidth="185.0" text="Onjuiste inlog, probeer opnieuw!" textFill="RED" visible="false" />
+      <Label fx:id="failedLogin" layoutX="308.0" layoutY="475.0" prefHeight="17.0" prefWidth="185.0" text="Onjuiste inlog, probeer opnieuw!" textFill="RED" visible="false" />
       <PasswordField fx:id="passWord" layoutX="325.0" layoutY="280.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: white;" />
       <Button fx:id="loginButton" layoutX="325.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#loginCheck" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #767476;" text="Login">
          <font>
