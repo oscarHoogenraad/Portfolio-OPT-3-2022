@@ -115,27 +115,45 @@
       <CheckBox fx:id="retourAutoButton" layoutX="670.0" layoutY="333.0" mnemonicParsing="false" onAction="#changeVoorraadAuto" text="Retour" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></CheckBox>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <CheckBox fx:id="retourVrachtButton" layoutX="670.0" layoutY="333.0" mnemonicParsing="false" onAction="#changeVoorraadVracht" text="Retour" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></CheckBox>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <CheckBox fx:id="retourBoormachineButton" layoutX="670.0" layoutY="333.0" mnemonicParsing="false" onAction="#changeVoorraadBoor" text="Retour" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></CheckBox>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <CheckBox fx:id="verzekerAutoButton" layoutX="670.0" layoutY="363.0" mnemonicParsing="false" onAction="#changeVerzekerAuto" text="Verzekeren" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></CheckBox>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <CheckBox fx:id="verzekerVrachtButton" layoutX="670.0" layoutY="363.0" mnemonicParsing="false" onAction="#changeVerzekerVracht" text="Verzekeren" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></CheckBox>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <CheckBox fx:id="verzekerBoorButton" layoutX="670.0" layoutY="363.0" mnemonicParsing="false" onAction="#changeVerzekerBoor" text="Verzekeren" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></CheckBox>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <TextField fx:id="klantNaamField" layoutX="604.0" layoutY="425.0" promptText="voornaam achternaam" style="-fx-background-color: white;" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
@@ -154,11 +172,17 @@
       <Button fx:id="verhuurVrachtButton" layoutX="630.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#changeVrachtProduct" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #565456;" text="Verhuur" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></Button>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Button fx:id="verhuurBoorButton" layoutX="630.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#changeBoorProduct" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #565456;" text="Verhuur" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
-         </font></Button>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <VBox prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #767476;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="ingelogde gebruiker:">

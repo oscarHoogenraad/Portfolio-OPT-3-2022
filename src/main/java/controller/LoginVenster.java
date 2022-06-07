@@ -44,12 +44,8 @@ public class LoginVenster extends NavigationController implements Initializable 
                 toMenu();
             }
             else{
-                failedLogin();
+                failedLogin.setVisible(true);
             }
         }
-    }
-
-    public void failedLogin(){
-        failedLogin.setVisible(true);
     }
 }

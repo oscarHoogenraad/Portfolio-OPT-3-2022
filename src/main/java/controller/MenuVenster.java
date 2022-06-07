@@ -19,6 +19,7 @@ public class MenuVenster extends NavigationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Account.ingelogdeUser().isIngelogd()){
+            welAdmin.setVisible(false);
             displayIngelogd.setText(Account.ingelogdeUser().getUsername());
             displayAdmin();
         }
@@ -27,7 +28,6 @@ public class MenuVenster extends NavigationController implements Initializable {
     public void displayAdmin(){
         if(Medewerker.ingelogdeUser().check(Medewerker.ingelogdeUser())){
             welAdmin.setVisible(true);
-            System.out.println(Medewerker.ingelogdeUser().isKeuzeAdmin());
         }
     }
 }

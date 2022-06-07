@@ -48,6 +48,9 @@
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <TextField fx:id="merkField" layoutX="613.0" layoutY="302.0" promptText="Merk" style="-fx-background-color: white;" visible="false">
          <font>
@@ -78,11 +81,17 @@
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="toevoegBoormachineButton" layoutX="550.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#addToBoormachine" prefHeight="40.0" style="-fx-background-color: #565456;" text="Toevoegen aan assortiment!" visible="false">
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <VBox prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #767476;">
          <children>

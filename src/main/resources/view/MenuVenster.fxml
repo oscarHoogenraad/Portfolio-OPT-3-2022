@@ -1,21 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuVenster">
    <children>
-      <Button layoutX="49.0" layoutY="205.0" mnemonicParsing="false" onMouseClicked="#logout" text="Uitloggen" />
-      <Button layoutX="47.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#toBeheer" text="Beheer" />
-      <Button layoutX="51.0" layoutY="116.0" mnemonicParsing="false" onMouseClicked="#toOverzicht" text="Overzicht" />
-      <VBox prefHeight="34.0" prefWidth="140.0">
+      <VBox prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #767476;">
          <children>
-            <Label text="ingelogde gebruiker:" />
-            <Label fx:id="displayIngelogd" text="Label" />
+            <Label text="ingelogde gebruiker:">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="displayIngelogd" text="Label">
+               <font>
+                  <Font name="Calibri Italic" size="16.0" />
+               </font>
+            </Label>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </VBox>
-      <Label fx:id="welAdmin" layoutX="526.0" layoutY="52.0" text="Je bent ingelogd als een Admin" visible="false" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#767476" height="566.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="140.0" />
+      <Button layoutY="80.0" maxWidth="150.0" mnemonicParsing="false" onMouseClicked="#toOverzicht" prefHeight="125.0" prefWidth="140.0" style="-fx-background-color: #565456;" text="Overzicht" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="welAdmin" layoutX="250.0" prefHeight="50.0" prefWidth="206.0" style="-fx-background-color: #767476;" text="Je bent ingelogd als een Admin">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font></Label>
+      <Button layoutY="255.0" mnemonicParsing="false" onMouseClicked="#toBeheer" prefHeight="125.0" prefWidth="140.0" style="-fx-background-color: #565456;" text="Beheer">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button ellipsisString="" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="125.0" prefWidth="140.0" style="-fx-background-color: #565456;" text="Log uit" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Line endX="138.0" layoutX="2.0" layoutY="216.0" scaleY="10.0" stroke="WHITE" strokeWidth="2.0" />
+      <Line endX="138.0" layoutX="2.0" layoutY="428.0" scaleY="10.0" stroke="WHITE" strokeWidth="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#767476" height="600.0" layoutX="578.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="222.0" />
+      <Label layoutX="578.0" layoutY="16.0" text="Uitleg Overzicht">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Text layoutX="578.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Het OverzichtsVenster toont een aantal scrollbare lijsten van alle producten die het bedrijf verhuurt, met een indicatie of het product op voorraad is. Je kan als gebruiker in het OverzichtsVenster producten verhuren of retourneren." wrappingWidth="200.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Text>
+      <Line endX="221.0" layoutX="578.0" layoutY="35.0" />
+      <Label layoutX="578.0" layoutY="280.0" text="Uitleg Beheer">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Line endX="221.0" layoutX="578.0" layoutY="299.0" />
+      <Text layoutX="578.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Het BeheerVenster toont een aantal scrollbare lijsten van alle bekende soorten producten. Je kan als gebruiker in het BeheerVenster producten toevoegen door op het soort product te klikken, waarna een invulformulier tevoorschijn komt." wrappingWidth="200.0">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
