@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginVenster extends NavigationController implements Initializable {
+public class LoginVenster extends NavigationController {
 
     Account Uses;
 
@@ -27,14 +27,6 @@ public class LoginVenster extends NavigationController implements Initializable 
 
     @FXML
     private TextField gebruikersNummer;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Account a = new Medewerker("jan123~", "123", 1);
-        Account b = new Medewerker("klaas66", "66", 2);
-        Account c = new Medewerker("admin1~", "1", 3);
-        Account d = new Medewerker("piet22", "22", 4);
-    }
 
     public void loginCheck() throws IOException {
         for(Account i: Account.getAccountList()){

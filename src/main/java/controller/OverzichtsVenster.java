@@ -85,6 +85,10 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         }
         addToList();
         addToTable();
+        onClick();
+    }
+
+    public void onClick(){
         personenautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             detailPersonenauto();
         });
@@ -144,35 +148,12 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     }
 
     public void setInvisible(){
-        voorraadLabel.setVisible(false);
-        voorraadDisplay.setVisible(false);
-        hpLabel.setVisible(false);
-        hpDisplay.setVisible(false);
-        merkLabel.setVisible(false);
-        merkDisplay.setVisible(false);
-        gewichtLabel.setVisible(false);
-        gewichtDisplay.setVisible(false);
-        soortLabel.setVisible(false);
-        soortDisplay.setVisible(false);
-        laadvermogenDisplay.setVisible(false);
-        laadvermogenLabel.setVisible(false);
-        typeDisplay.setVisible(false);
-        typelabel.setVisible(false);
-        doorDisplay.setVisible(false);
-        doorLabel.setVisible(false);
-        aanDisplay.setVisible(false);
-        aanLabel.setVisible(false);
-        retourAutoButton.setVisible(false);
-        retourBoormachineButton.setVisible(false);
-        retourVrachtButton.setVisible(false);
-        verzekerAutoButton.setVisible(false);
-        verzekerBoorButton.setVisible(false);
-        verzekerVrachtButton.setVisible(false);
-        verhuurAutoButton.setVisible(false);
-        verhuurVrachtButton.setVisible(false);
-        verhuurBoorButton.setVisible(false);
-        naamLabel.setVisible(false);
-        klantNaamField.setVisible(false);
+        voorraadLabel.setVisible(false); voorraadDisplay.setVisible(false); hpLabel.setVisible(false); hpDisplay.setVisible(false); merkLabel.setVisible(false);
+        merkDisplay.setVisible(false); gewichtLabel.setVisible(false); gewichtDisplay.setVisible(false); soortLabel.setVisible(false); soortDisplay.setVisible(false);
+        laadvermogenDisplay.setVisible(false); laadvermogenLabel.setVisible(false); typeDisplay.setVisible(false); typelabel.setVisible(false); doorDisplay.setVisible(false);
+        doorLabel.setVisible(false); aanDisplay.setVisible(false); aanLabel.setVisible(false); retourAutoButton.setVisible(false); retourBoormachineButton.setVisible(false);
+        retourVrachtButton.setVisible(false); verzekerAutoButton.setVisible(false); verzekerBoorButton.setVisible(false); verzekerVrachtButton.setVisible(false);
+        verhuurAutoButton.setVisible(false); verhuurVrachtButton.setVisible(false); verhuurBoorButton.setVisible(false); naamLabel.setVisible(false); klantNaamField.setVisible(false);
     }
 
     public void changeVerzekerAuto(ActionEvent event){
@@ -196,14 +177,12 @@ public class OverzichtsVenster extends NavigationController implements Initializ
             if (vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() <= tempHuur && vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() <= tempVerz) {
                 hpDisplay.setText((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + (vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()) + "");
                 vrachtautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + (vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()));
-                System.out.println(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag());
             }
         } else {
             double d = (vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() - vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht());
             double e = d * 10;
             vrachtautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag(d / e);
             hpDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() + "");
-            System.out.println(vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag());
         }
     }
 
@@ -278,13 +257,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         temp.soortProductMessage();
     }
 
-    public void detailPersonenauto() {
-        setInvisible();
-        voorraadDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
-        hpDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
-        merkDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getMerk());
-        gewichtDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getGewicht() + "");
-        soortDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getSoort());
+    public void setVisibleP(){
         voorraadLabel.setVisible(true);
         voorraadDisplay.setVisible(true);
         merkLabel.setVisible(true);
@@ -293,23 +266,95 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         gewichtDisplay.setVisible(true);
         soortLabel.setVisible(true);
         soortDisplay.setVisible(true);
+    }
+
+    public void setVisibleB(){
+        voorraadLabel.setVisible(true);
+        voorraadDisplay.setVisible(true);
+        merkLabel.setVisible(true);
+        merkDisplay.setVisible(true);
+        typelabel.setVisible(true);
+        typeDisplay.setVisible(true);
+        soortLabel.setVisible(true);
+        soortDisplay.setVisible(true);
+    }
+
+    public void setVisibleV(){
+        voorraadLabel.setVisible(true);
+        voorraadDisplay.setVisible(true);
+        laadvermogenDisplay.setVisible(true);
+        laadvermogenLabel.setVisible(true);
+        gewichtLabel.setVisible(true);
+        gewichtDisplay.setVisible(true);
+        soortLabel.setVisible(true);
+        soortDisplay.setVisible(true);
+    }
+
+    public void setVisiblePInvul(){
+        klantNaamField.setVisible(true);
+        verhuurAutoButton.setVisible(true);
+        naamLabel.setVisible(true);
+        hpLabel.setVisible(true);
+        hpDisplay.setVisible(true);
+        verzekerAutoButton.setVisible(true);
+    }
+
+    public void setVisiblePDisplay(){
+        doorDisplay.setVisible(true);
+        doorLabel.setVisible(true);
+        aanDisplay.setVisible(true);
+        aanLabel.setVisible(true);
+        retourAutoButton.setVisible(true);
+    }
+
+    public void setVisibleVInvul(){
+        klantNaamField.setVisible(true);
+        hpLabel.setVisible(true);
+        verhuurVrachtButton.setVisible(true);
+        hpDisplay.setVisible(true);
+        verzekerVrachtButton.setVisible(true);
+    }
+
+    public void setVisibleVDisplay(){
+        retourVrachtButton.setVisible(true);
+        doorDisplay.setVisible(true);
+        doorLabel.setVisible(true);
+        aanDisplay.setVisible(true);
+        aanLabel.setVisible(true);
+    }
+
+    public void setVisibleBInvul(){
+        klantNaamField.setVisible(true);
+        verhuurBoorButton.setVisible(true);
+        hpLabel.setVisible(true);
+        hpDisplay.setVisible(true);
+        verzekerBoorButton.setVisible(true);
+    }
+
+    public void setVisibleBDisplay(){
+        retourBoormachineButton.setVisible(true);
+        doorDisplay.setVisible(true);
+        doorLabel.setVisible(true);
+        aanDisplay.setVisible(true);
+        aanLabel.setVisible(true);
+    }
+
+    public void detailPersonenauto() {
+        setInvisible();
+        voorraadDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
+        hpDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
+        merkDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getMerk());
+        gewichtDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getGewicht() + "");
+        soortDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getSoort());
+        setVisibleP();
 
         if(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
             printProductSoortPersonenAuto();
-            klantNaamField.setVisible(true);
-            verhuurAutoButton.setVisible(true);
-            naamLabel.setVisible(true);
-            hpLabel.setVisible(true);
-            hpDisplay.setVisible(true);
-            verzekerAutoButton.setVisible(true);
+            setVisiblePInvul();
         }
 
         if(!personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            doorDisplay.setVisible(true);
-            doorLabel.setVisible(true);
-            aanDisplay.setVisible(true);
-            aanLabel.setVisible(true);
-            retourAutoButton.setVisible(true);
+            setVisiblePDisplay();
             doorDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getDoorVerhuurd());
             aanDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getAanverhuurd());
         }
@@ -322,30 +367,14 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         soortDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getSoort());
         laadvermogenDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() + "");
         gewichtDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() + "");
-        voorraadLabel.setVisible(true);
-        voorraadDisplay.setVisible(true);
-        laadvermogenDisplay.setVisible(true);
-        laadvermogenLabel.setVisible(true);
-        gewichtLabel.setVisible(true);
-        gewichtDisplay.setVisible(true);
-        soortLabel.setVisible(true);
-        soortDisplay.setVisible(true);
+        setVisibleV();
 
         if(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            printProductSoortVrachtauto();
-            klantNaamField.setVisible(true);
-            hpLabel.setVisible(true);
-            verhuurVrachtButton.setVisible(true);
-            hpDisplay.setVisible(true);
-            verzekerVrachtButton.setVisible(true);
+            setVisibleVInvul();
         }
 
         if(!vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            retourVrachtButton.setVisible(true);
-            doorDisplay.setVisible(true);
-            doorLabel.setVisible(true);
-            aanDisplay.setVisible(true);
-            aanLabel.setVisible(true);
+            setVisibleVDisplay();
             doorDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getDoorVerhuurd());
             aanDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getAanverhuurd());
         }
@@ -353,14 +382,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
 
     public void detailBoormachine(){
         setInvisible();
-        voorraadLabel.setVisible(true);
-        voorraadDisplay.setVisible(true);
-        merkLabel.setVisible(true);
-        merkDisplay.setVisible(true);
-        typelabel.setVisible(true);
-        typeDisplay.setVisible(true);
-        soortLabel.setVisible(true);
-        soortDisplay.setVisible(true);
+        setVisibleB();
         voorraadDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
         hpDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
         merkDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getMerk());
@@ -369,19 +391,11 @@ public class OverzichtsVenster extends NavigationController implements Initializ
 
         if(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
             printProductSoortBoormachine();
-            klantNaamField.setVisible(true);
-            verhuurBoorButton.setVisible(true);
-            hpLabel.setVisible(true);
-            hpDisplay.setVisible(true);
-            verzekerBoorButton.setVisible(true);
+            setVisibleBInvul();
         }
 
         if(!boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            retourBoormachineButton.setVisible(true);
-            doorDisplay.setVisible(true);
-            doorLabel.setVisible(true);
-            aanDisplay.setVisible(true);
-            aanLabel.setVisible(true);
+            setVisibleBDisplay();
             doorDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getDoorVerhuurd());
             aanDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getAanverhuurd());
         }

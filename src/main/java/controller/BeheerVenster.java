@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.security.PublicKey;
 import java.util.ResourceBundle;
 
 public class BeheerVenster extends NavigationController implements Initializable {
@@ -52,6 +53,10 @@ public class BeheerVenster extends NavigationController implements Initializable
         }
         OverzichtsVenster.addToList();
         addToTableView();
+        onClick();
+    }
+
+    public void onClick(){
         personenautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegPersonenauto();
         });
