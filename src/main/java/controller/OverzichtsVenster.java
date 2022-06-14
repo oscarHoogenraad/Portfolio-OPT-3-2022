@@ -340,13 +340,33 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         aanLabel.setVisible(true);
     }
 
-    public void detailPersonenauto() {
-        setInvisible();
+    public void setTextP(){
         voorraadDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
         hpDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
         merkDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getMerk());
         gewichtDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getGewicht() + "");
         soortDisplay.setText(personenautosTable.getSelectionModel().getSelectedItem().getSoort());
+    }
+
+    public void setTextV(){
+        voorraadDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
+        hpDisplay.setText((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + "");
+        soortDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getSoort());
+        laadvermogenDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() + "");
+        gewichtDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() + "");
+    }
+
+    public void setTextB(){
+        voorraadDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
+        hpDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
+        merkDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getMerk());
+        soortDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getSoort());
+        typeDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getType());
+    }
+
+    public void detailPersonenauto() {
+        setInvisible();
+        setTextP();
         setVisibleP();
 
         if(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
@@ -363,18 +383,12 @@ public class OverzichtsVenster extends NavigationController implements Initializ
 
     public void detailVrachtauto(){
         setInvisible();
-        voorraadDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
-        hpDisplay.setText((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + "");
-        soortDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getSoort());
-        laadvermogenDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() + "");
-        gewichtDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() + "");
+        setTextV();
         setVisibleV();
-
         if(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
             printProductSoortVrachtauto();
             setVisibleVInvul();
         }
-
         if(!vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
             setVisibleVDisplay();
             doorDisplay.setText(vrachtautosTable.getSelectionModel().getSelectedItem().getDoorVerhuurd());
@@ -385,11 +399,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     public void detailBoormachine(){
         setInvisible();
         setVisibleB();
-        voorraadDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad() + "");
-        hpDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
-        merkDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getMerk());
-        soortDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getSoort());
-        typeDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getType());
+        setTextB();
 
         if(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
             printProductSoortBoormachine();
