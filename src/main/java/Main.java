@@ -1,5 +1,5 @@
-import controller.Account;
-import controller.Medewerker;
+import controller.models.Account;
+import controller.models.Medewerker;
 
 public class Main {
     public static void main(String[] args) {

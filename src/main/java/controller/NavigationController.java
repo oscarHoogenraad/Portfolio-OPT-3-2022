@@ -1,4 +1,5 @@
 package controller;
+import controller.models.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;

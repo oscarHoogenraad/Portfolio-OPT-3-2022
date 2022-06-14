@@ -1,4 +1,5 @@
 package controller;
+import controller.models.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -370,6 +371,7 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         setVisibleV();
 
         if(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
+            printProductSoortVrachtauto();
             setVisibleVInvul();
         }
 

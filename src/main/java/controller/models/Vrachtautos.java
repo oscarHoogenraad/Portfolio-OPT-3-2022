@@ -1,4 +1,4 @@
-package controller;
+package controller.models;
 
 public class Vrachtautos extends Product{
     private double laadvermogen;
@@ -19,7 +19,7 @@ public class Vrachtautos extends Product{
     }
 
     @Override
-    void soortProductMessage(){
+    public void soortProductMessage(){
         System.out.println("Dit product valt onder het soort product: Vrachtauto");
     }
 }

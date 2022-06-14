@@ -1,4 +1,4 @@
-package controller;
+package controller.models;
 
 public class Boormachines extends Product{
     private String merk;
@@ -19,7 +19,7 @@ public class Boormachines extends Product{
     }
 
     @Override
-    void soortProductMessage(){
+    public void soortProductMessage(){
         System.out.println("Dit product valt onder het soort product: Boormachine");
     }
 }

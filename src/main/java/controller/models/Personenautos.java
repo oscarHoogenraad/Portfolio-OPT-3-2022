@@ -1,4 +1,4 @@
-package controller;
+package controller.models;
 
 public class Personenautos extends Product {
 
@@ -20,7 +20,7 @@ public class Personenautos extends Product {
     }
 
     @Override
-    void soortProductMessage(){
+    public void soortProductMessage(){
         System.out.println("Dit product valt onder het soort product: Personenauto");
     }
 }

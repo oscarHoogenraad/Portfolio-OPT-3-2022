@@ -1,4 +1,4 @@
-package controller;
+package controller.models;
 
 public class Medewerker extends Account {
     public Medewerker(String username, String password, int userNumber) {

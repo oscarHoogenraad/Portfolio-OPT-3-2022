@@ -1,4 +1,4 @@
-package controller;
+package controller.models;
 
 public abstract class Product {
     private double verzekering;
@@ -17,7 +17,7 @@ public abstract class Product {
         this.aanverhuurd = aanverhuurd;
     }
 
-    abstract void soortProductMessage();
+    public abstract void soortProductMessage();
 
     public void setOpVoorraad(boolean opVoorraad) {
         this.opVoorraad = opVoorraad;

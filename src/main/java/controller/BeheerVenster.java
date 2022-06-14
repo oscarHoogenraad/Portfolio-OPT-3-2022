@@ -1,4 +1,8 @@
 package controller;
+import controller.models.Account;
+import controller.models.Boormachines;
+import controller.models.Personenautos;
+import controller.models.Vrachtautos;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
-import java.security.PublicKey;
 import java.util.ResourceBundle;
 
 public class BeheerVenster extends NavigationController implements Initializable {

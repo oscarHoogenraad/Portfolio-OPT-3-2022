@@ -1,4 +1,6 @@
 package controller;
+import controller.models.Account;
+import controller.models.Medewerker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
