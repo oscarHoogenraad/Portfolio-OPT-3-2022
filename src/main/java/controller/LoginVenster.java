@@ -28,8 +28,7 @@ public class LoginVenster extends NavigationController {
 
     public void loginCheck() throws IOException {
         for(Account i: Account.getAccountList()){
-            int tempNr = Integer.parseInt(gebruikersNummer.getText());
-            if(userName.getText().equals(i.getUsername())&& passWord.getText().equals(i.getPassword())&& tempNr==i.getUserNumber() ){
+            if(userName.getText().equals(i.getUsername())&& passWord.getText().equals(i.getPassword())&& Integer.parseInt(gebruikersNummer.getText()) == i.getUserNumber() ){
                 i.setIngelogd(true);
                 toMenu();
             }

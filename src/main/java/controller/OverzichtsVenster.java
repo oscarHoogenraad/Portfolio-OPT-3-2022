@@ -45,22 +45,22 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     private TableView<Boormachines> boormachinesTable;
 
     @FXML
-    private TableColumn<Personenautos, String> Soort;
+    private TableColumn<Personenautos, String> SoortP;
 
     @FXML
-    private TableColumn<Personenautos, Boolean> OpVoorraad;
+    private TableColumn<Personenautos, Boolean> OpVoorraadP;
 
     @FXML
-    private TableColumn<Vrachtautos, String> Soort2;
+    private TableColumn<Vrachtautos, String> SoortV;
 
     @FXML
-    private TableColumn<Vrachtautos, Boolean> OpVoorraad2;
+    private TableColumn<Vrachtautos, Boolean> OpVoorraadV;
 
     @FXML
-    private TableColumn<Boormachines, String> Soort3;
+    private TableColumn<Boormachines, String> SoortB;
 
     @FXML
-    private TableColumn<Boormachines, Boolean> OpVoorraad3;
+    private TableColumn<Boormachines, Boolean> OpVoorraadB;
 
     public static ArrayList<Personenautos> personenautosArrayList = new ArrayList<>();
     public static ArrayList<Product> emptylist = new ArrayList<>();
@@ -137,12 +137,12 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     }
 
     public void addToTable(){
-        Soort.setCellValueFactory(new PropertyValueFactory<>("soort"));
-        OpVoorraad.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
-        Soort2.setCellValueFactory(new PropertyValueFactory<>("soort"));
-        OpVoorraad2.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
-        Soort3.setCellValueFactory(new PropertyValueFactory<>("soort"));
-        OpVoorraad3.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
+        SoortP.setCellValueFactory(new PropertyValueFactory<>("soort"));
+        OpVoorraadP.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
+        SoortV.setCellValueFactory(new PropertyValueFactory<>("soort"));
+        OpVoorraadV.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
+        SoortB.setCellValueFactory(new PropertyValueFactory<>("soort"));
+        OpVoorraadB.setCellValueFactory(new PropertyValueFactory<>("OpVoorraad"));
         personenautosTable.setItems(FXCollections.observableArrayList(personenautosArrayList));
         vrachtautosTable.setItems(FXCollections.observableArrayList(vrachtautosArrayList));
         boormachinesTable.setItems(FXCollections.observableArrayList(boormachinesArrayList));
@@ -158,9 +158,8 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     }
 
     public void changeVerzekerAuto(ActionEvent event){
-        double temp = (personenautosTable.getSelectionModel().getSelectedItem().getVerzekering()*personenautosTable.getSelectionModel().getSelectedItem().getGewicht()) + personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag();
         if(verzekerAutoButton.isSelected()){
-            if((personenautosTable.getSelectionModel().getSelectedItem().getVerzekering()*personenautosTable.getSelectionModel().getSelectedItem().getGewicht()) + personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() <= temp){
+            if((personenautosTable.getSelectionModel().getSelectedItem().getVerzekering()*personenautosTable.getSelectionModel().getSelectedItem().getGewicht()) + personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() <= (personenautosTable.getSelectionModel().getSelectedItem().getVerzekering()*personenautosTable.getSelectionModel().getSelectedItem().getGewicht()) + personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag()){
                 hpDisplay.setText((personenautosTable.getSelectionModel().getSelectedItem().getVerzekering()*personenautosTable.getSelectionModel().getSelectedItem().getGewicht()) + personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + "");
                 personenautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag((personenautosTable.getSelectionModel().getSelectedItem().getVerzekering()*personenautosTable.getSelectionModel().getSelectedItem().getGewicht()) + personenautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag());
             }
@@ -172,10 +171,8 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     }
 
     public void changeVerzekerVracht(ActionEvent event) {
-        double tempHuur = vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen();
-        double tempVerz = vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht();
         if (verzekerVrachtButton.isSelected()) {
-            if (vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() <= tempHuur && vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() <= tempVerz) {
+            if (vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() <= vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen() && vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht() <= vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()) {
                 hpDisplay.setText((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + (vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()) + "");
                 vrachtautosTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag((vrachtautosTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() * vrachtautosTable.getSelectionModel().getSelectedItem().getLaadvermogen()) + (vrachtautosTable.getSelectionModel().getSelectedItem().getVerzekering() * vrachtautosTable.getSelectionModel().getSelectedItem().getGewicht()));
             }
@@ -188,9 +185,8 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     }
 
     public void changeVerzekerBoor(ActionEvent event){
-        double temp = boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering();
             if(verzekerBoorButton.isSelected()){
-                if(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering() <= temp){
+                if(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering() <= boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering()){
                     hpDisplay.setText(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering() + "");
                     boormachinesTable.getSelectionModel().getSelectedItem().setHuurprijsPerDag(boormachinesTable.getSelectionModel().getSelectedItem().getHuurprijsPerDag() + boormachinesTable.getSelectionModel().getSelectedItem().getVerzekering());
                 }
@@ -244,18 +240,18 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     }
 
     public void printProductSoortPersonenAuto(){
-        Product temp = new Personenautos(true, 0, "", 0, 0, "", "", "");
-        temp.soortProductMessage();
+        Product printSoort = new Personenautos(true, 0, "", 0, 0, "", "", "");
+        printSoort.soortProductMessage();
     }
 
     public void printProductSoortVrachtauto(){
-        Product temp = new Vrachtautos(true, 0, 0, 0, 0, "", "", "");
-        temp.soortProductMessage();
+        Product printSoort = new Vrachtautos(true, 0, 0, 0, 0, "", "", "");
+        printSoort.soortProductMessage();
     }
 
     public void printProductSoortBoormachine(){
-        Product temp = new Boormachines(true, 0, "", "", 0, "", "", "");
-        temp.soortProductMessage();
+        Product printSoort = new Boormachines(true, 0, "", "", 0, "", "", "");
+        printSoort.soortProductMessage();
     }
 
     public void setVisibleP(){

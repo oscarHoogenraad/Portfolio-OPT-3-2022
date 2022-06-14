@@ -122,8 +122,7 @@ public class BeheerVenster extends NavigationController implements Initializable
     }
 
     public void addToPersonenauto(){
-        double a = Double.parseDouble(gewichtField.getText());
-        OverzichtsVenster.getPersonenautosArrayList().add(new Personenautos(true, 40, merkField.getText(), a, 0.01, "Personenauto", "", ""));
+        OverzichtsVenster.getPersonenautosArrayList().add(new Personenautos(true, 40, merkField.getText(), Double.parseDouble(gewichtField.getText()), 0.01, "Personenauto", "", ""));
     }
 
     public void addToBoormachine(){
@@ -131,9 +130,7 @@ public class BeheerVenster extends NavigationController implements Initializable
     }
 
     public void addToVrachtauto(){
-        double b = Double.parseDouble(laadVermogenField.getText());
-        double c = Double.parseDouble(gewichtField.getText());
-        OverzichtsVenster.getVrachtautosArrayList().add(new Vrachtautos(true, 0.1, 0.01, b, c, "Vrachtauto", "", ""));
+        OverzichtsVenster.getVrachtautosArrayList().add(new Vrachtautos(true, 0.1, 0.01, Double.parseDouble(laadVermogenField.getText()), Double.parseDouble(gewichtField.getText()), "Vrachtauto", "", ""));
     }
 }
 

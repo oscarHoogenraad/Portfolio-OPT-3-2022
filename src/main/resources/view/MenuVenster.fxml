@@ -41,7 +41,7 @@
          <font>
             <Font name="Calibri Bold" size="16.0" />
          </font></Label>
-      <Button layoutY="255.0" mnemonicParsing="false" onMouseClicked="#toBeheer" prefHeight="125.0" prefWidth="140.0" style="-fx-background-color: #565456;" text="Beheer">
+      <Button layoutY="255.0" mnemonicParsing="false" onMouseClicked="#toegangBeheer" prefHeight="125.0" prefWidth="140.0" style="-fx-background-color: #565456;" text="Beheer">
          <font>
             <Font name="Calibri Bold" size="26.0" />
          </font>

@@ -17,11 +17,6 @@ public class NavigationController {
         rootPane.getChildren().setAll(pane);
     }
 
-    public void toBeheer() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/BeheerVenster.fxml"));
-        rootPane.getChildren().setAll(pane);
-    }
-
     public void logout() throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/LoginVenster.fxml"));
         rootPane.getChildren().setAll(pane);
