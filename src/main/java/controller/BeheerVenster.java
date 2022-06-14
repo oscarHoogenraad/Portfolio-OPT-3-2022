@@ -32,22 +32,22 @@ public class BeheerVenster extends NavigationController implements Initializable
     private TextField gewichtField, merkField, typeField, laadVermogenField;
 
     @FXML
-    private TableView<Personenautos> personenautosTable;
+    private TableView<Personenautos> personenautosTableView;
 
     @FXML
-    private TableView<Vrachtautos> vrachtautosTable;
+    private TableView<Vrachtautos> vrachtautosTableView;
 
     @FXML
-    private TableView<Boormachines> boormachinesTable;
+    private TableView<Boormachines> boormachinesTableView;
 
     @FXML
-    private TableColumn<Personenautos, String> Soort;
+    private TableColumn<Personenautos, String> SoortP;
 
     @FXML
-    private TableColumn<Vrachtautos, String> Soort2;
+    private TableColumn<Vrachtautos, String> SoortV;
 
     @FXML
-    private TableColumn<Boormachines, String> Soort3;
+    private TableColumn<Boormachines, String> SoortB;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,24 +60,24 @@ public class BeheerVenster extends NavigationController implements Initializable
     }
 
     public void onClick(){
-        personenautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+        personenautosTableView.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegPersonenauto();
         });
-        vrachtautosTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+        vrachtautosTableView.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegVrachtauto();
         });
-        boormachinesTable.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+        boormachinesTableView.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             toevoegBoormachine();
         });
     }
 
     public void addToTableView(){
-        Soort.setCellValueFactory(new PropertyValueFactory<>("soort"));
-        Soort2.setCellValueFactory(new PropertyValueFactory<>("soort"));
-        Soort3.setCellValueFactory(new PropertyValueFactory<>("soort"));
-        personenautosTable.setItems(FXCollections.observableArrayList(OverzichtsVenster.personenautosArrayList.get(0)));
-        vrachtautosTable.setItems(FXCollections.observableArrayList(OverzichtsVenster.vrachtautosArrayList.get(0)));
-        boormachinesTable.setItems(FXCollections.observableArrayList(OverzichtsVenster.boormachinesArrayList.get(0)));
+        SoortP.setCellValueFactory(new PropertyValueFactory<>("soort"));
+        SoortV.setCellValueFactory(new PropertyValueFactory<>("soort"));
+        SoortB.setCellValueFactory(new PropertyValueFactory<>("soort"));
+        personenautosTableView.setItems(FXCollections.observableArrayList(OverzichtsVenster.personenautosArrayList.get(0)));
+        vrachtautosTableView.setItems(FXCollections.observableArrayList(OverzichtsVenster.vrachtautosArrayList.get(0)));
+        boormachinesTableView.setItems(FXCollections.observableArrayList(OverzichtsVenster.boormachinesArrayList.get(0)));
     }
 
     public void setInvisible(){

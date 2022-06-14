@@ -14,19 +14,19 @@
 <AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BeheerVenster">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="600.0" layoutX="506.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
-      <TableView fx:id="personenautosTable" layoutX="50.0" layoutY="72.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="personenautosTableView" layoutX="50.0" layoutY="72.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0">
          <columns>
-            <TableColumn fx:id="Soort" maxWidth="300.0" minWidth="20.0" prefWidth="300.0" text="Soort product" />
+            <TableColumn fx:id="SoortP" maxWidth="300.0" minWidth="20.0" prefWidth="300.0" text="Soort product" />
          </columns>
       </TableView>
-      <TableView fx:id="vrachtautosTable" layoutX="50.0" layoutY="390.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.leftAnchor="10.0">
+      <TableView fx:id="vrachtautosTableView" layoutX="50.0" layoutY="390.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.leftAnchor="10.0">
          <columns>
-            <TableColumn fx:id="Soort2" maxWidth="300.0" minWidth="20.0" prefWidth="300.0" text="Soort product" />
+            <TableColumn fx:id="SoortV" maxWidth="300.0" minWidth="20.0" prefWidth="300.0" text="Soort product" />
          </columns>
       </TableView>
-      <TableView fx:id="boormachinesTable" layoutX="50.0" layoutY="220.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.leftAnchor="10.0">
+      <TableView fx:id="boormachinesTableView" layoutX="50.0" layoutY="220.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.leftAnchor="10.0">
          <columns>
-            <TableColumn fx:id="Soort3" maxWidth="300.0" minWidth="20.0" prefWidth="300.0" text="Soort product" />
+            <TableColumn fx:id="SoortB" maxWidth="300.0" minWidth="20.0" prefWidth="300.0" text="Soort product" />
          </columns>
       </TableView>
       <Label fx:id="merkLabel" layoutX="508.0" layoutY="307.0" text="Merk:" visible="false">
