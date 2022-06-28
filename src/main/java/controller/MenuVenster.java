@@ -1,6 +1,5 @@
 package controller;
-import controller.models.Account;
-import controller.models.Medewerker;
+import controller.models.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +18,7 @@ public class MenuVenster extends NavigationController implements Initializable {
     public AnchorPane rootPane;
 
     @FXML
-    private Label displayIngelogd, welAdmin;
+    private Label displayIngelogd, welAdmin, naamdisplay, nummerDisplay, adminDisplay;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -27,11 +26,29 @@ public class MenuVenster extends NavigationController implements Initializable {
             welAdmin.setVisible(false);
             displayIngelogd.setText(Account.ingelogdeUser().getUsername());
             displayAdmin();
+            informatieIngelogdeAccount();
+        }
+    }
+
+    public void informatieIngelogdeAccount(){
+        if(Account.ingelogdeUser().isKeuzeAdmin()){
+            AccountDetails admin = new AdminDetails();
+            admin.laadGegevens();
+            naamdisplay.setText(admin.getNaam());
+            nummerDisplay.setText(String.valueOf(admin.getNummer()));
+            adminDisplay.setText(String.valueOf(admin.isAdmin()));
+        }
+        else{
+            AccountDetails medewerker = new MedewerkerDetails();
+            medewerker.laadGegevens();
+            naamdisplay.setText(medewerker.getNaam());
+            nummerDisplay.setText(String.valueOf(medewerker.getNummer()));
+            adminDisplay.setText(String.valueOf(medewerker.isAdmin()));
         }
     }
 
     public void toegangBeheer() throws IOException {
-        if(Account.ingelogdeUser().getUsername().contains("~")){
+        if(Account.ingelogdeUser().isKeuzeAdmin()){
             AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/BeheerVenster.fxml"));
             rootPane.getChildren().setAll(pane);
         }
@@ -41,7 +58,7 @@ public class MenuVenster extends NavigationController implements Initializable {
     }
 
     public void displayAdmin(){
-        if(Medewerker.ingelogdeUser().check(Medewerker.ingelogdeUser())){
+        if(Medewerker.ingelogdeUser().isKeuzeAdmin()){
             welAdmin.setVisible(true);
         }
     }

@@ -17,9 +17,4 @@ public class Boormachines extends Product{
     public String getType() {
         return type;
     }
-
-    @Override
-    public void soortProductMessage(){
-        System.out.println("Dit product valt onder het soort product: Boormachine");
-    }
 }

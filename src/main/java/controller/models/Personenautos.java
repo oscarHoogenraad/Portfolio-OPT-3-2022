@@ -18,9 +18,4 @@ public class Personenautos extends Product {
     public double getGewicht() {
         return gewicht;
     }
-
-    @Override
-    public void soortProductMessage(){
-        System.out.println("Dit product valt onder het soort product: Personenauto");
-    }
 }

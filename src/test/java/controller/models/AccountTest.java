@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
-    Account test = new Medewerker("a", "b", 1);
+    Account test = new Medewerker("a", "b", 1, false);
 
     @Test
     public void test1(){

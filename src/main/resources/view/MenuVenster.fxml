@@ -82,5 +82,35 @@
             <Font name="Calibri" size="16.0" />
          </font>
       </Text>
+      <Label fx:id="voorraadLabel" layoutX="288.0" layoutY="429.0" text="Naam:">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="naamdisplay" layoutX="438.0" layoutY="429.0">
+         <font>
+            <Font name="Calibri Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="voorraadLabel1" layoutX="288.0" layoutY="487.0" text="Nummer:">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="nummerDisplay" layoutX="438.0" layoutY="487.0">
+         <font>
+            <Font name="Calibri Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="voorraadLabel2" layoutX="288.0" layoutY="546.0" text="Admin:">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="adminDisplay" layoutX="438.0" layoutY="546.0">
+         <font>
+            <Font name="Calibri Italic" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -17,8 +17,6 @@ public abstract class Product {
         this.aanverhuurd = aanverhuurd;
     }
 
-    public abstract void soortProductMessage();
-
     public void setOpVoorraad(boolean opVoorraad) {
         this.opVoorraad = opVoorraad;
     }

@@ -2,7 +2,7 @@ package controller.models;
 
 import java.util.ArrayList;
 
-public abstract class Account implements IAccount{
+public abstract class Account{
 
     Product edits;
     private String username;
@@ -11,10 +11,11 @@ public abstract class Account implements IAccount{
     private boolean ingelogd;
     private int userNumber;
 
-    public Account(String username, String password, int userNumber){
+    public Account(String username, String password, int userNumber, boolean keuzeAdmin){
         this.userNumber = userNumber;
         this.username = username;
         this.password = password;
+        this.keuzeAdmin=keuzeAdmin;
         accountList.add(this);
     }
 
@@ -25,11 +26,6 @@ public abstract class Account implements IAccount{
     public boolean isKeuzeAdmin() {
         return keuzeAdmin;
     }
-
-    public void setKeuzeAdmin(boolean keuzeAdmin) {
-        this.keuzeAdmin = keuzeAdmin;
-    }
-
 
     public boolean isIngelogd() {
         return ingelogd;

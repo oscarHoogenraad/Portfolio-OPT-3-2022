@@ -16,6 +16,8 @@ public class OverzichtsVenster extends NavigationController implements Initializ
 
     LoginVenster ReliesOn;
 
+    boolean voorraad;
+
     @FXML
     public AnchorPane rootPane;
 
@@ -77,6 +79,25 @@ public class OverzichtsVenster extends NavigationController implements Initializ
 
     public static ArrayList<Boormachines> getBoormachinesArrayList() {
         return boormachinesArrayList;
+    }
+    private static ArrayList<OverzichtObserver> luisteraars = new ArrayList<>();
+
+    public void setLuisteraars(){
+        if(luisteraars.equals(emptylist)){
+            luisteraars.add(new LabelDisplay(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()));
+            luisteraars.add(new TableColumnDisplay(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()));
+        }
+    }
+
+    public void notifyObservers(){
+        for(OverzichtObserver i: luisteraars){
+            i.update(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad());
+        }
+    }
+
+    public void setvoorraad(boolean voorraad){
+        this.voorraad=voorraad;
+        notifyObservers();
     }
 
     @Override
@@ -239,21 +260,6 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         }
     }
 
-    public void printProductSoortPersonenAuto(){
-        Product printSoort = new Personenautos(true, 0, "", 0, 0, "", "", "");
-        printSoort.soortProductMessage();
-    }
-
-    public void printProductSoortVrachtauto(){
-        Product printSoort = new Vrachtautos(true, 0, 0, 0, 0, "", "", "");
-        printSoort.soortProductMessage();
-    }
-
-    public void printProductSoortBoormachine(){
-        Product printSoort = new Boormachines(true, 0, "", "", 0, "", "", "");
-        printSoort.soortProductMessage();
-    }
-
     public void setVisibleP(){
         voorraadLabel.setVisible(true);
         voorraadDisplay.setVisible(true);
@@ -364,9 +370,10 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         setInvisible();
         setTextP();
         setVisibleP();
+        setLuisteraars();
+        setvoorraad(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad());
 
         if(personenautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            printProductSoortPersonenAuto();
             setVisiblePInvul();
         }
 
@@ -382,7 +389,6 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         setTextV();
         setVisibleV();
         if(vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            printProductSoortVrachtauto();
             setVisibleVInvul();
         }
         if(!vrachtautosTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
@@ -398,7 +404,6 @@ public class OverzichtsVenster extends NavigationController implements Initializ
         setTextB();
 
         if(boormachinesTable.getSelectionModel().getSelectedItem().isOpVoorraad()){
-            printProductSoortBoormachine();
             setVisibleBInvul();
         }
 

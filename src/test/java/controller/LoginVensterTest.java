@@ -10,5 +10,5 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginVensterTest {
-    Account a = new Medewerker("a", "a", 1);
+    Account a = new Medewerker("a", "a", 1, false);
 }

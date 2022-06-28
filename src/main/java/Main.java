@@ -1,12 +1,12 @@
-import controller.models.Account;
-import controller.models.Medewerker;
+import controller.OverzichtsVenster;
+import controller.models.*;
 
 public class Main {
     public static void main(String[] args) {
-        Account a = new Medewerker("jan123~", "123", 1);
-        Account b = new Medewerker("klaas66", "66", 2);
-        Account c = new Medewerker("admin1~", "1", 3);
-        Account d = new Medewerker("piet22", "22", 4);
+        Account a = new Admin("jan123", "123", 1, true);
+        Account b = new Medewerker("klaas66", "66", 2, false);
+        Account c = new Admin("admin1", "1", 3, true);
+        Account d = new Medewerker("piet22", "22", 4, false);
         JavaFXApp.main(args);
     }
 }
