@@ -4,6 +4,7 @@ public abstract class AccountDetails {
 
     private String naam;
     private int nummer;
+    private boolean admin;
 
     public void laadGegevens(){
         laadNaam();
@@ -38,6 +39,4 @@ public abstract class AccountDetails {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
-
-    private boolean admin;
 }

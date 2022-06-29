@@ -80,6 +80,9 @@ public class OverzichtsVenster extends NavigationController implements Initializ
     public static ArrayList<Boormachines> getBoormachinesArrayList() {
         return boormachinesArrayList;
     }
+
+
+
     private static ArrayList<OverzichtObserver> luisteraars = new ArrayList<>();
 
     public void setLuisteraars(){
